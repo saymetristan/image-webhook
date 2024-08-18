@@ -1,0 +1,14 @@
+{
+  "name": "openai-image-processor",
+  "version": "1.0.0",
+  "description": "A service to process images using OpenAI",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "openai": "^3.0.0"
+  }
+}
