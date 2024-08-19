@@ -14,7 +14,9 @@ const processImage = async (imageUrl) => {
           { type: "text", text: "Analiza esta imagen de un recibo o factura y extrae la siguiente información: nombre del gasto, monto, fecha y una breve descripción (si está disponible)." },
           {
             type: "image_url",
-            url: imageUrl,
+            image_url: {
+              url: imageUrl,
+            },
           },
         ],
       },
