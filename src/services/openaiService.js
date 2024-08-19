@@ -9,9 +9,13 @@ const processImage = async (imageUrl) => {
     model: "gpt-4o-mini",
     messages: [
       {
+        role: "system",
+        content: "Eres un asistente útil diseñado para generar respuestas en formato JSON."
+      },
+      {
         role: "user",
         content: [
-          { type: "text", text: "Analiza esta imagen de un recibo o factura y extrae la siguiente información: nombre del gasto, monto, fecha y una breve descripción (si está disponible)." },
+          { type: "text", text: "Analiza esta imagen de un recibo o factura y extrae la siguiente información en formato JSON: nombre del gasto, monto, fecha y una breve descripción (si está disponible)." },
           {
             type: "image_url",
             image_url: {
