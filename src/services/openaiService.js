@@ -15,7 +15,7 @@ const processImage = async (imageUrl) => {
       {
         role: "user",
         content: [
-          { type: "text", text: "Analiza esta imagen de un recibo o factura y extrae la siguiente información en formato JSON: nombre del gasto, monto, fecha y una breve descripción (si está disponible)." },
+          { type: "text", text: "Analiza esta imagen de un recibo o factura y extrae la siguiente información en formato JSON: nombre del gasto, monto, fecha, una breve descripción (si está disponible) y una lista de productos con sus nombres y precios." },
           {
             type: "image_url",
             image_url: {
@@ -49,6 +49,24 @@ const processImage = async (imageUrl) => {
             descripcion: {
               type: "string",
               description: "Una breve descripción del gasto (opcional)"
+            },
+            productos: {
+              type: "array",
+              items: {
+                type: "object",
+                properties: {
+                  nombre: {
+                    type: "string",
+                    description: "El nombre del producto"
+                  },
+                  precio: {
+                    type: "number",
+                    description: "El precio del producto"
+                  }
+                },
+                required: ["nombre", "precio"]
+              },
+              description: "Una lista de productos con sus nombres y precios"
             }
           },
           required: ["nombre_gasto", "monto", "fecha"]
